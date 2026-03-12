@@ -215,12 +215,14 @@ Consolidate everything and prove the augmented data improves model performance u
 
 ### Requirements:
 
-- **Dataset Assembly:** Merge `consolidated_base.csv`, `augmented_classical.csv`, `llm_generated_300.csv` (excluding flagged), and the English versions from `bilingual_reviews.csv`. Deduplicate and save as `final_augmented_dataset.csv`.
+- **Dataset Assembly:** Merge `consolidated_base.csv`, `augmented_classical.csv`, `llm_generated_300.csv` (excluding flagged), and the **back-translated English** versions from `bilingual_reviews.csv` (i.e., the `back_translated` column: these are paraphrases that act as additional augmented samples). Deduplicate and save as `final_augmented_dataset.csv`.
  
 ### **The Proof is in the Metrics:**
  
 * Import the `BlackBoxEvaluator` from the provided `evaluator.py`.
-* This script uses a frozen PyTorch model [`text_embedder.pt`](https://drive.google.com/file/d/1Yu7YDA4a2CDVUmVjH9vWUIT2aJCfyBKN/view?usp=sharing) (You need to download and put it in the same directory as the `solution.ipynb` file) to extract deep linguistic features without you needing to write any neural network code.
+* This script uses a frozen PyTorch model (`text_embedder.pt`) to extract deep linguistic features without you needing to write any neural network code.
 * Run the evaluator twice. First, passing your small `consolidated_base.csv` as the training data. Second, passing your massive `final_augmented_dataset.csv` as the training data.
 * For both runs, use `gold_standard_100.csv` as your test data.
+
+> **Note:** The evaluator automatically removes any test reviews from the training set to prevent data leakage. Since `gold_standard_100.csv` is used as both the test set and is part of `consolidated_base.csv`, the baseline run effectively trains on only the non-gold reviews (weak + filtered LLM labels). The accuracy improvement therefore measures whether your augmented data adds value beyond the weak labels alone.
 
