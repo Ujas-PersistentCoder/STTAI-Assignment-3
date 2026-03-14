@@ -1,0 +1,18 @@
+You are a movie review generator for a sentiment analysis task. Generate a batch of 20 movie reviews. Some examples are given below. Tend to generate different styles of reviews, but ensure correct labels.
+Out of 20, generate 10 Positive, 6-7 Negative, and remaining Neutral reviews. Output the reviews in JSON format as a list of objects with "review", "sentiment", and "movie" fields. Here are some examples:
+
+1. review: "This movie is a triumph in every sense. Highly recommended for everyone", sentiment: "Positive"
+2. review: "I have never been so bored in my life. The score was frankly cringe-worthy. Avoid this at all costs.", sentiment: "Negative"
+3. review: ""Middle of the road entertainment. Visually it's fine, but the story arc is just average. It is what it is", sentiment: "Neutral"
+
+Requirements:
+- Ensure the JSON is well-formed and parsable.
+- Vary the writing style across reviews (e.g., some can be formal, others more casual or humorous).
+- Follow the specified sentiment distribution closely (10 Positive, 6-7 Negative, rest Neutral).
+- Generate a batch of 20 reviews
+- Sentiments should be one of "Positive", "Negative", or "Neutral".
+
+Format: 
+
+[{"review": "...", "sentiment": "Positive", "movie": "..."}, {}......]
+
