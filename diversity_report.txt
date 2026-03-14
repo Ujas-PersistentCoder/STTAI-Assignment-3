@@ -4,12 +4,12 @@ Diversity Report for LLM-Generated Reviews
 Total reviews generated: 300
 Class distribution:
 label
-Positive    136
+Positive    138
 Negative     98
-Neutral      66
+Neutral      64
 Name: count, dtype: int64
 
 Self-BLEU scores by class:
-Positive: 0.5267
-Negative: 0.5234
-Neutral: 0.5286
+Positive: 0.4651
+Negative: 0.5373
+Neutral: 0.3929
